@@ -1,0 +1,194 @@
+/* --- 1. RESET & DASAR DESAIN --- */
+* {
+    margin: 0; /* Menghapus jarak bawaan luar browser */
+    padding: 0; /* Menghapus jarak bawaan dalam browser */
+    box-sizing: border-box; /* Memastikan padding tidak merusak ukuran lebar elemen */
+    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins yang sudah kamu panggil di HTML */
+}
+
+html {
+    scroll-behavior: smooth; /* Membuat efek scroll halus saat klik menu navigasi */
+}
+
+body {
+    background-color: #fdf2f8; /* Background pink sangat muda agar mata tidak cepat lelah */
+    color: #444; /* Warna teks abu-abu gelap agar profesional */
+    line-height: 1.6; /* Memberi ruang antar baris teks */
+}
+
+/* --- 2. NAVIGASI (Sticky & Modern) --- */
+header {
+    background: rgba(255, 255, 255, 0.95); /* Putih transparan agar terlihat modern */
+    position: sticky; /* Menu tetap menempel di atas saat di-scroll */
+    top: 0;
+    z-index: 1000; /* Memastikan navigasi di atas elemen lain */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan halus */
+}
+
+nav {
+    display: flex; /* Mengaktifkan mode flexbox */
+    justify-content: space-between; /* Logo di kiri, menu di kanan */
+    align-items: center; /* Menu lurus secara vertikal */
+    padding: 15px 10%; /* Jarak dalam navigasi */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fb7185; /* Pink utama */
+}
+
+.logo span {
+    color: #38bdf8; /* Biru muda */
+}
+
+.nav-links {
+    list-style: none; /* Menghilangkan titik-titik pada list */
+    display: flex; /* Menyusun menu ke samping */
+    gap: 25px; /* Jarak antar menu */
+}
+
+.nav-links a {
+    text-decoration: none; /* Menghilangkan garis bawah link */
+    color: #555;
+    font-weight: 400;
+    transition: 0.3s; /* Efek transisi halus saat hover */
+}
+
+.nav-links a:hover {
+    color: #fb7185; /* Berubah jadi pink saat disentuh mouse */
+}
+
+/* --- 3. HERO SECTION (Beranda) --- */
+.hero-kelompok {
+    height: 90vh; /* Tinggi hero 90% dari layar */
+    background: linear-gradient(135deg, #38bdf8, #fb7185); /* Gradasi Biru ke Pink */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-overlay h1 {
+    font-size: 4rem; /* Ukuran teks besar */
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.btn-cek {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: white;
+    color: #fb7185;
+    text-decoration: none;
+    border-radius: 50px; /* Membuat tombol lonjong */
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-cek:hover {
+    transform: scale(1.05); /* Tombol membesar sedikit saat hover */
+    background-color: #f0f0f0;
+}
+
+/* --- 4. CONTAINER & JUDUL --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+.section-title::after { /* Garis dekorasi di bawah judul */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #38bdf8;
+    margin: 10px auto;
+}
+
+/* --- 5. GRID KELOMPOK (Kartu Sejajar) --- */
+.kelompok-grid {
+    display: grid; /* Menggunakan sistem Grid agar rapi */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Otomatis menyesuaikan jumlah kolom */
+    gap: 20px; /* Jarak antar kartu */
+}
+
+.kelompok-card {
+    background: white;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid #f0f0f0;
+}
+
+.kelompok-card:hover {
+    transform: translateY(-10px); /* Efek kartu terangkat */
+    border-color: #fb7185; /* Border berubah pink saat hover */
+}
+
+.card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Gambar tetap proporsional */
+    background: #e0f2fe; /* Background biru muda jika gambar belum ada */
+}
+
+.card-info {
+    padding: 15px;
+}
+
+.card-info h3 {
+    font-size: 1.1rem;
+    color: #fb7185;
+}
+
+/* --- 6. MAKALAH & VIDEO (Tampilan Profesional) --- */
+.content-wrapper, .video-wrapper {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.pdf-container, .video-container {
+    width: 100%;
+    height: 500px; /* Tinggi tampilan PDF dan Video */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* --- 7. FOOTER --- */
+footer {
+    background: #2d3436;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+/* --- 8. RESPONSIVE (Tampilan Mobile) --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Menu jadi vertikal di HP */
+        gap: 15px;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 2.5rem;
+    }
+}
